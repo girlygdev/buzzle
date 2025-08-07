@@ -87,6 +87,14 @@ exports.showProduct = async (req, res) => {
 		const { id } = req.params;
 		const product = await Product.findById(id).exec();
 
+		if (!product) {
+			return res.status(404)
+				.json(jsonResponseHelper({
+					flag: 'error',
+					message: 'Category does not exist',
+				}))
+		}
+
 		return res.status(200)
 			.json(jsonResponseHelper({
 				message: 'Product details',
@@ -105,9 +113,33 @@ exports.showProduct = async (req, res) => {
 // @route	PUT /api/products/:id
 exports.updateProduct = async (req, res) => {
 	try {
+		const { id } = req.params;
+		const { name, price, category_id, ...rest } = req.body;
+
+		if (!name || !price || !category_id) {
+			return res.status(400).json(jsonResponseHelper({
+				flag: 'error',
+				message: 'Invalid fields',
+				error: [
+						!name && "Product name is required",
+						!price && "Product price is required",
+						!category_id && "Category is required"
+					].filter(Boolean),
+			}));
+		}
+
+		const category = await Category.findById(category_id).exec();
+		if (!category) {
+			return res.status(400).json(jsonResponseHelper({
+				flag: 'error',
+				message: 'Invalid fields',
+				error: 'Category is invalid',
+			}));
+		}
+
 		const product = await Product.findByIdAndUpdate(
-			req.params.id,
-			req.body,
+			id,
+			{ name, price, category, ...rest},
 			{
 				new: true,           
 				runValidators: true,

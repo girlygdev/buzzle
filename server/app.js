@@ -31,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // define routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter);
 

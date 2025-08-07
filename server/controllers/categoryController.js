@@ -1,4 +1,5 @@
 const Category = require('../models/category.model');
+const Product = require('../models/product.model');
 const { jsonResponseHelper } = require('../utils/Helper');
 
 // @desc	List all categories
@@ -60,6 +61,14 @@ exports.showCategory = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const category = await Category.findById(id).exec();
+
+		if (!category) {
+			return res.status(404)
+				.json(jsonResponseHelper({
+					flag: 'error',
+					message: 'Category does not exist',
+				}))
+		}
 
 		return res.status(200)
 			.json(jsonResponseHelper({
@@ -137,4 +146,34 @@ exports.deleteCategory = async (req, res) => {
 				message: 'An error occured',
 			}))
 	}
+}
+
+// @desc List category products
+// @route GET /api/categories/:id/products
+exports.getCategoryProducts =  async (req, res) => {
+	try {
+		const { id } = req.params;
+		const category = await Category.findById(id).exec();
+		const products = await Product.find({ category: id }).exec();
+
+		if (!category) {
+			return res.status(404)
+				.json(jsonResponseHelper({
+					flag: 'error',
+					message: 'Category does not exist',
+				}))
+		}
+
+		return res.status(200)
+			.json(jsonResponseHelper({
+				message: 'List of category products',
+				data: products
+			}))
+	} catch (err) {
+		return res.status(500)
+			.json(jsonResponseHelper({
+				flag: "error",
+				message: 'An error occured',
+			}))
+	} 
 }
