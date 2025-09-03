@@ -15,3 +15,21 @@ export type Item = {
 	is_available: boolean,
 	category_id: number
 };
+
+export type Table = {
+	id: string,
+	name: string,
+	description?: string,
+	location?: string,
+	pax: number
+}
+
+export type Customer = {
+	id: string,
+	first_name: string,
+	last_name: string,
+	phone?: string,
+	email?: string,
+	note?: string
+}
+

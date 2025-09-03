@@ -16,12 +16,12 @@ const links: Array<LinkNav> = [
 		href: '/dashboard',
 	},
 	{
-		name: 'New Order',
-		href: '/orders',
-	},
-	{
 		name: 'Menu',
 		href: '/menu',
+	},
+	{
+		name: 'Orders',
+		href: '/orders',
 	},
 	{
 		name: 'Reports',
@@ -43,7 +43,7 @@ const SideNav = () => {
 			</div>
 
 			<nav className='px-5 flex-grow flex flex-col justify-between'>
-				<div className='flex flex-col flex-grow'>
+				<div className='flex flex-col flex-grow space-y-2'>
 					{links.map((link: LinkNav, key) => (
 						<Link
 							key={key}

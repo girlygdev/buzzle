@@ -19,6 +19,10 @@
   }
 }
 
+.scrollbar-container.ps .ps__rail-y {
+	right: -5px !important; 
+}
+
 *, 
 *::after,
 *::before {

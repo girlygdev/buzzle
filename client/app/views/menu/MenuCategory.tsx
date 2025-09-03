@@ -5,13 +5,13 @@ import { Category } from '@/app/utils/definition';
 import clsx from 'clsx';
 import React from 'react';
 
-type OrderCategoryProps = {
+type MenuCategoryProps = {
 	category: Category;
 	onClick: () => void;
 	isSelected?: boolean
 };
 
-const OrderCategory: React.FC<OrderCategoryProps> = ({ category, onClick, isSelected = false }) => {
+const MenuCategory: React.FC<MenuCategoryProps> = ({ category, onClick, isSelected = false }) => {
 	return (
 		<button
 			className={`${category?.color} flex flex-col justify-between rounded-sm p-2 h-28 cursor-pointer`}
@@ -35,4 +35,4 @@ const OrderCategory: React.FC<OrderCategoryProps> = ({ category, onClick, isSele
 	);
 };
 
-export default OrderCategory;
+export default MenuCategory;
