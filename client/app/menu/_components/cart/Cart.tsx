@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { DollarSign, CreditCard, QrCode } from 'lucide-react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -5,17 +7,16 @@ import {
 	OrderItem,
 	PaymentTypeEnum,
 	useOrderStore,
-} from '../../store/useOrderStore';
+} from '@/store/useOrderStore';
 import CartItem from './CartItem';
-import useCartStore from '../../hooks/useCartStore';
-import { formatPrice } from '../../utils/format';
+import { formatPrice } from '@/utils/format';
 import clsx from 'clsx';
 import EditCartItemDialog from './dialogs/EditCartItemDialog';
 import EditNoteButton from './actions/EditNoteButton';
 import ResetCartButton from './actions/ResetCartButton';
 import EditNoteDialog from './dialogs/EditNoteDialog';
 import { useShallow } from 'zustand/shallow';
-import { useCartTotals } from '@/app/store/orderStoreSelector';
+import { useCartTotals } from '@/store/orderStoreSelector';
 
 const Cart = () => {
 	const { order, note, setNote, updateOrderItem, deleteOrderItem } =
@@ -29,7 +30,7 @@ const Cart = () => {
 			}))
 		);
 
-	const { subTotal, tax, total, totalItems } = useCartTotals();                       
+	const { subTotal, tax, total, totalItems } = useCartTotals();
 
 	const [currentItem, setCurrentItem] = useState<OrderItem>();
 	const [openEditItemDx, setOpenEditItemDx] = useState(false);
@@ -170,7 +171,7 @@ const Cart = () => {
 										className={clsx(
 											'flex flex-col items-center justify-center border rounded-sm px-2 py-3 cursor-pointer hover:bg-white hover:text-gray-900 transition-all ease-in-out',
 											payment === PaymentTypeEnum.Cash &&
-												'bg-white text-gray-900'
+											'bg-white text-gray-900'
 										)}
 									>
 										<DollarSign
@@ -190,7 +191,7 @@ const Cart = () => {
 										className={clsx(
 											'flex flex-col items-center justify-center border rounded-sm px-2 py-3 cursor-pointer hover:bg-white hover:text-gray-900 transition-all ease-in-out',
 											payment === PaymentTypeEnum.Card &&
-												'bg-white text-gray-900'
+											'bg-white text-gray-900'
 										)}
 									>
 										<CreditCard
@@ -210,8 +211,8 @@ const Cart = () => {
 										className={clsx(
 											'flex flex-col items-center justify-center border rounded-sm px-2 py-3 cursor-pointer hover:bg-white hover:text-gray-900 transition-all ease-in-out',
 											payment ===
-												PaymentTypeEnum.Ewallet &&
-												'bg-white text-gray-900'
+											PaymentTypeEnum.Ewallet &&
+											'bg-white text-gray-900'
 										)}
 									>
 										<QrCode

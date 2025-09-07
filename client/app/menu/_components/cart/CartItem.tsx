@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { OrderItem } from '../../store/useOrderStore';
+import { OrderItem } from '@/store/useOrderStore';
 import numeral from 'numeral';
 import { Pencil, Trash2 } from 'lucide-react';
 import clsx from 'clsx';

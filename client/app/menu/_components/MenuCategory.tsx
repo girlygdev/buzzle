@@ -1,7 +1,7 @@
 'use client'
 
-import { DynamicLucideIcon } from '@/app/components/ui/DynamicLucideIcon';
-import { Category } from '@/app/utils/definition';
+import { DynamicLucideIcon } from '@/components/ui/DynamicLucideIcon';
+import { Category } from '@/utils/definition';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -18,7 +18,7 @@ const MenuCategory: React.FC<MenuCategoryProps> = ({ category, onClick, isSelect
 			onClick={onClick}
 		>
 			<div className={clsx(
-				{'flex-grow flex justify-center items-center': isSelected},
+				{ 'flex-grow flex justify-center items-center': isSelected },
 				'transition-all duration-200 ease-in-out'
 			)}>
 				<DynamicLucideIcon

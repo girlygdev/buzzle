@@ -1,4 +1,4 @@
-import { useOrderStore } from '@/app/store/useOrderStore';
+import { useOrderStore } from '@/store/useOrderStore';
 import clsx from 'clsx';
 import { X } from 'lucide-react';
 import React from 'react';

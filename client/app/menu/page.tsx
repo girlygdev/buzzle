@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import { categories, items } from '../utils/data-placeholder';
-import { Category, Item } from '../utils/definition';
-import OrderCategory from '../views/menu/MenuCategory';
-import OrderItemComponent from '../views/menu/MenuItem';
+import { categories, items } from '../../utils/data-placeholder';
+import { Category, Item } from '../../utils/definition';
+import OrderCategory from './_components/MenuCategory';
+import OrderItemComponent from './_components/MenuItem';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { inter } from '../styles/fonts';
 import clsx from 'clsx';
-import Cart from '../views/cart/Cart';
+import Cart from './_components/cart/Cart';
+import { inter } from '@/styles/fonts';
 
 const OrderPage = () => {
 	const [currentCategory, setCurrentCategory] = useState<Category | null>();

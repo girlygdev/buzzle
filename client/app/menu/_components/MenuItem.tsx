@@ -1,9 +1,9 @@
-import { Category, Item } from '@/app/utils/definition';
+import { Category, Item } from '@/utils/definition';
 import React, { useMemo } from 'react';
 import { Minus, Plus } from 'lucide-react';
-import { formatPrice } from '@/app/utils/format';
-import { OrderItem, useOrderStore } from '@/app/store/useOrderStore';
+import { formatPrice } from '@/utils/format';
 import clsx from 'clsx';
+import { OrderItem, useOrderStore } from '@/store/useOrderStore';
 
 type MenuItemProps = {
 	category: Category;

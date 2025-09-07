@@ -1,3 +1,5 @@
+'use client';
+
 import { create } from 'zustand';
 import { Customer, Item, Table } from '../utils/definition';
 import { persist } from 'zustand/middleware';

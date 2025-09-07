@@ -1,3 +1,5 @@
+'use client';
+
 import { useShallow } from 'zustand/shallow';
 import { useOrderStore } from './useOrderStore';
 
