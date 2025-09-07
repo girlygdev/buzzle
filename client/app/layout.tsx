@@ -21,7 +21,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<div className='flex h-screen flex-col md:flex-row md:overflow-hidden'>
+				<div className='flex h-screen flex-col md:flex-row md:overflow-hidden bg-neutral-900 text-white'>
 					<div className='w-full flex-none md:w-64 hidden lg:block'>
 						<SideNav />
 					</div>

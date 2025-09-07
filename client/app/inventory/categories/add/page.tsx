@@ -18,7 +18,7 @@ const AddCategoryPage = () => {
 	}, [])
 
 	return (
-		<div className='rounded-md bg-neutral-900 md:w-1/2 p-5'>
+		<div className='rounded-md border border-neutral-800 md:w-1/2 p-5'>
 			<h2 className='text-xl pb-4 mb-4 border-b border-neutral-700'>
 				New Category
 			</h2>
